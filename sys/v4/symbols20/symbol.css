@@ -1,0 +1,27 @@
+.body {
+	margin-left: 0px;
+	margin-top: 0px;
+}
+.back-hd {
+	background-image:  url(image/hd_back.jpg);
+}
+p{
+	margin:1em;
+}
+.content{
+	color:#000000;
+	background:#ccff66;
+	padding:0.5em;
+	margin:1em;
+	width:730px;
+}
+.explanation{
+	margin-left:1.1em;
+}
+.list2{
+	list-style-type:square;
+}
+.image{
+	padding:9px;
+	font-size:90%;
+}
