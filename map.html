@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<script src="./sys/OpenLayers-current/OpenLayers.js" charset="UTF-8"></script>
+<script src="./sys/v4/jquery/jquery-1.6.2.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./jquery.ba-postmessage.js" charset="UTF-8"></script>
+<script src="./ScaleBar.js"></script>
+<script src="./lzwurlc.js"></script>
+<script src="./ptmobj.js"></script>
+<link rel="stylesheet" href="./scalebar.css" type="text/css"></link>
+
+<style>
+	body { padding: 0; margin: 0 }
+	html, body, #map { height: 100%; width: 100% }
+	div.olControlAttribution {
+	    padding: 3px;
+	    color:#000000;
+	    background-color:#ffffff;
+	    background-color:rgba(230,255,255,0.7);
+	    font-size:12px;
+	    line-height:14px;
+	    bottom:5px;
+	    vertical-align: middle;
+    }
+</style>
+</head>
+<body>
+<div id='map'>
+<script>
+	var projection3857 = new OpenLayers.Projection('EPSG:3857');
+	var projection4326 =  new OpenLayers.Projection('EPSG:4326');
+	var map;
+	var baselayer;
+	var sakuzulayer;
+	var selectControl;
+	var ptmapModule;
+
+	// データを受け取るための待ち受け
+	$.receiveMessage(receiveMessage);
+
+	// 地図の作成
+	map = new OpenLayers.Map({
+		div: 'map',
+		projection: projection3857,
+		displayProjection: projection4326,
+	});
+	map.addControl(new OpenLayers.Control.ScaleBar({divisions:1}));
+
+	baselayer = new OpenLayers.Layer.XYZ('標準地図', 'http://cyberjapandata.gsi.go.jp/xyz/std/${z}/${x}/${y}.png', {
+		attribution: '<a href="https://maps.gsi.go.jp/" target="_blank">国土地理院</a>',
+	    maxZoomLevel: 18
+	});
+
+	sakuzulayer = new OpenLayers.Layer.Vector();
+
+	map.addLayer(baselayer);
+	map.addLayer(sakuzulayer);
+
+	ptmapModule = $('#PtmapObj').PtmapObj({
+		'map': map,
+		'layer': sakuzulayer
+	});
+
+	// 地図の表示
+	function receiveMessage(event) {
+		var data = JSON.parse(event.data);
+		
+		if (data.t) {
+			// 地図情報＋作図情報
+			map.setCenter(new OpenLayers.LonLat(data.c[0], data.c[1]).transform(projection4326, projection3857), ptmapModule.calcZL(data.s));
+
+			if (data.m) {
+				for (var i = 0; i < data.m.length; i++) {
+					ptmapModule.createFeatures(data.m[i].cjson.d);
+				}
+			}
+		}
+		else {
+			// 作図情報のみ
+			ptmapModule.createFeatures(data.d);
+		}
+		
+		ptmapModule.addPopup();
+	}
+
+</script>
+</body>
+</html>

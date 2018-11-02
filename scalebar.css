@@ -1,0 +1,93 @@
+.olControlScaleBar {
+    bottom: 10px;
+    left: 35px;
+    font-family: sans-serif;
+    color: #000;
+}
+
+.olControlScaleBarBar {
+    height: 1px;
+    top: 14px;
+    background: #333;
+}
+
+.olControlScaleBarBarAlt {
+    height: 1px;
+    top: 14px;
+    background: #333;
+}
+
+.olControlScaleBarMarkerMajor {
+    height: 7px;
+    width: 1px;
+    top: 11px;
+    background: #333;
+}
+
+.olControlScaleBarMarkerMinor {
+    height: 5px;
+    width: 1px;
+    top: 12px;
+    background: #333;
+}
+
+.olControlScaleBarNumbersBox {
+    width: 40px;
+    height: 13px;
+    top: 21px;
+    font-size: 0.7em;
+}
+
+.olControlScaleBarLabelBox {
+    top: -2px;
+    height: 15px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    font-size: 0.7em;
+    font-variant: small-caps;
+}
+
+.olControlScaleBarBackground {
+    height: 30px;
+    top: 3px;
+    background: #FFF;
+    filter:alpha(opacity=85);
+    -moz-opacity: 0.85;
+    opacity: 0.85;
+}
+
+@media print {
+	.olControlScaleBarBar {
+	    height: 0px;
+	    border-width: 1px;
+	    border-color: #000;
+	    border-style: solid;
+	}
+
+	.olControlScaleBarBarAlt {
+	    height: 0px;
+	    border-width: 1px;
+	    border-color: #000;
+	    border-style: solid;
+	}
+
+	.olControlScaleBarMarkerMajor {
+	    width: 0px;
+	    border-width: 1px;
+	    border-color: #000;
+	    border-style: solid;
+	}
+
+	.olControlScaleBarMarkerMinor {
+	    width: 0px;
+	    border-width: 1px;
+	    border-color: #000;
+	    border-style: solid;
+	}
+
+	.olControlScaleBarBackground {
+    	filter:alpha(opacity=100);
+    	-moz-opacity: 1;
+    	opacity: 1;
+	}
+}
