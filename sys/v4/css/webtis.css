@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+/* 縮尺バー用 */
+div.olControlScaleLine {
+	background-color:#ffffff;
+	/* for IE */
+	filter:alpha(opacity=60);
+	/* CSS3 standard */
+	opacity:0.6;
+}
+
+div.olControlAttribution {
+	font-size:12px;
+	line-height:12px;
+	bottom:5px;
+}

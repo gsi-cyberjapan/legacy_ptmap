@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD> 
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>他の地図閲覧サービスへのリンク</TITLE>
+<script type="text/javascript" src="../js/proj4js-combined.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<link rel="stylesheet" href="css/css.css" type="text/css">
+</HEAD>
+<BODY>
+<div class="pageTitle">以下のリストから、ご希望のサービスを選択してください</div>
+<table border='1'>
+<caption class="caption">他の地図閲覧サービスへのリンク</caption>
+	<tr onClick="moveOtherMap('Mapion')" onMouseOver="cellOver(this)" onMouseOut="cellOut(this)" class="odd">
+		<td class='banner'><img src="http://www.mapion.co.jp/img/logo/L120_40.gif" width="120" height="40" border="0" alt="Mapion"></td><td class='siteName'>Mapion（マピオン）</td>
+	</tr>
+	<tr onClick="moveOtherMap('ItsumoNAVI')" onMouseOver="cellOver(this)" onMouseOut="cellOut(this)">
+		<td class='banner'><img src="banner/itsumo_navi.gif" width="120" height="40" border="0" alt="いつもNAVI" title="いつもNAVI"></td><td class='siteName'>いつもNAVI（ゼンリンデータコム）</td>
+	</tr>
+<!--	
+	<tr onClick="moveOtherMap('error')" onMouseOver="cellOver(this)" onMouseOut="cellOut(this)">
+		<td><img src="banner/gsi.png"  height="50" alt="国土地理院" title="国土地理院"></td><td>国土地理院</td>
+	</tr>
+-->
+</table>
+<div class="centerBL">
+	<script>
+		document.write("北緯：" + cy + "度　東経：" + cx + "度　に移動します");
+	</script>
+</div>
+<div align="right">
+	<iframe src="http://portal.cyberjapan.jp/count/count.php?id=007" height="50" width="140" frameborder="0" scrolling="no"></iframe>　since 2012.09.27
+</div>
+</BODY>
+</HTML>

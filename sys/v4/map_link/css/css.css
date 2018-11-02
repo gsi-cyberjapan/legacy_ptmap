@@ -1,0 +1,46 @@
+body	{
+	background-color: #ffffcc;
+	margin: 40px;
+}
+.pageTitle	{
+	font-size:25px;
+	padding: 10px;
+}
+
+.centerBL	{
+	font-size:25px;
+	padding: 10px;
+}
+
+.caption	{
+	font-size: 33px;
+	background-color: #777777;
+	padding: 10px;
+}
+
+table	{
+	color: #ffffff;
+	font-size:25px;
+	background-color: #ffffff;
+	border-collapse: collapse;
+	margin-bottom: 30px;
+}
+
+th,td	{
+	padding: 10px 20px;
+	color: #000000;
+	cursor:pointer;
+}
+
+td.banner	{
+	text-align:center;
+	width: 150px;
+}
+td.siteName	{
+	text-align:center;
+	width: 450px;
+}
+
+tr.odd	{
+	background: #DDF1F4;
+}
